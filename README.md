@@ -1,114 +1,251 @@
-# 🛒 Store Item Demand Forecasting App
+Store Item Demand Forecasting App
 
-A Streamlit-based interactive dashboard for forecasting daily sales of items across multiple stores using classical time series models (**SARIMA**) and deep learning models (**LSTM**). Designed for analysts, retailers, and supply chain managers.
+A powerful and interactive web application for forecasting store item demand using advanced time series models like SARIMA, ARIMA, Exponential Smoothing, ARCH/GARCH, and LSTM. Built with Streamlit and Plotly, this app provides a user-friendly interface for analyzing historical sales data, visualizing trends, and generating accurate 90-day demand forecasts.
 
----
+📑 Table of Contents
 
-
----
-
-## 📦 Dataset Overview
-
-The application expects a dataset with the following structure:
-
-| Column   | Description                     |
-|----------|---------------------------------|
-| `date`   | Date of sale (daily granularity)|
-| `store`  | Store ID                        |
-| `item`   | Item ID                         |
-| `sales`  | Number of items sold            |
-
-- **Time Range:** Multiple years
-- **Granularity:** Daily sales per store-item combination
-
----
-
-## 🔍 Features
-
-- 📊 **Interactive Data Exploration**
-  - Filter by Store and Item
-  - View sales trends using Plotly
-- 🧠 **Time Series Analysis**
-  - Seasonal decomposition (trend, seasonality, residual)
-  - Dickey-Fuller test for stationarity
-- 📈 **Forecasting Models**
-  - **SARIMA** with confidence intervals
-  - **LSTM** deep learning model with future predictions
-- 📎 **Visual Output**
-  - Zoomable forecast charts
-  - Historical vs predicted overlays
-
----
-
-## 🧪 Methodology
-
-1. **Data Preprocessing**  
-   - Date parsing, feature engineering  
-   - Filtering by store/item
-
-2. **Exploratory Analysis**  
-   - Rolling mean & std  
-   - Seasonal decomposition using statsmodels  
-
-3. **Stationarity Check**  
-   - Augmented Dickey-Fuller (ADF) test  
-   - Differencing if needed
-
-4. **Modeling & Forecasting**  
-   - SARIMA: Statistical forecasting with seasonal cycles  
-   - LSTM: Neural network forecasting with historical sequence learning  
-
-5. **Visualization**  
-   - Forecasted vs actual values  
-   - Confidence bands and diagnostics
-
----
-
-## 📂 Project Structure
-
-store-demand-forecasting/
-├── 📄 app.py              # Streamlit application script
-├── 📂 data/
-│   └── 📄 train.csv       # Input dataset (can be uploaded through the app)
-├── 📄 requirements.txt    # Project dependencies
-├── 📄 README.md           # Project overview and instructions
-├── 📄 LICENSE             # License file (e.g., MIT)
-└── 📂 models/             # (Optional) Saved models or future model extensions
+Project Overview
+Features
+Installation
+Usage
+Dataset
+Methodology
+Technologies Used
+Directory Structure
+Contributing
+License
+Acknowledgements
 
 
----
+📊 Project Overview
+The Store Item Demand Forecasting App is designed to predict future item-level sales for multiple stores, helping businesses optimize inventory and streamline supply chain operations. By leveraging a variety of time series forecasting models, the app provides detailed insights into sales trends, seasonality, and volatility, all visualized through interactive Plotly charts.
+Problem Statement
+The goal is to accurately forecast demand for each store-item combination over a 90-day period, enabling better inventory planning and reducing overstock or stockouts.
+Key Objectives
 
-🛠️ Tech Stack
-Frontend: Streamlit, Plotly
+Filter and preprocess sales data by store and item.
+Perform time series decomposition to identify trends and seasonality.
+Evaluate stationarity using the Dickey-Fuller test.
+Apply multiple forecasting models and compare their performance.
+Visualize forecasts with confidence intervals and historical data.
 
-Backend: Python, Statsmodels, TensorFlow (LSTM)
 
-Libraries: Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn
+✨ Features
 
----
+Interactive UI: Built with Streamlit for seamless user interaction.
+Data Filtering: Select specific stores and items for analysis.
+Time Series Analysis:
+Seasonal decomposition to uncover trends, seasonality, and residuals.
+Rolling statistics and Dickey-Fuller test for stationarity.
 
-📈 Example Use Cases
-Retail stock replenishment
 
-Demand planning and logistics
+Multiple Forecasting Models:
+ARIMA: Autoregressive Integrated Moving Average.
+SARIMA: Seasonal ARIMA for handling seasonality.
+Exponential Smoothing: For trend and seasonal components.
+ARCH/GARCH: For modeling volatility in sales data.
+LSTM: Deep learning-based forecasting with neural networks.
 
-Sales trend analysis
 
-Model comparison and experimentation
+Visualizations:
+Interactive sales trends, decomposition, and forecast plots using Plotly.
+Confidence intervals for SARIMA forecasts.
 
----
 
-🙌 Acknowledgements
-This project is inspired by real-world retail forecasting challenges and built with ❤️ using open-source tools.
+Scalable: Handles large datasets with efficient preprocessing.
 
----
 
-🧑‍💻 Author
-Asad Khan
-GitHub: https://github.com/AsadKhan527
-LinkedIn: linkedin.com/in/asad-khan-0a526225b
+🛠 Installation
+Follow these steps to set up the project locally:
+Prerequisites
 
----
+Python 3.8 or higher
+pip (Python package manager)
+Git (optional, for cloning the repository)
 
-📄 License
-This project is licensed under the MIT License. See LICENSE for details.
+Steps
+
+Clone the Repository:
+git clone https://github.com/your-username/store-item-demand-forecasting.git
+cd store-item-demand-forecasting
+
+
+Create a Virtual Environment:
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+
+Install Dependencies:
+pip install -r requirements.txt
+
+
+Run the Streamlit App:
+streamlit run app.py
+
+
+Access the App:Open your browser and navigate to http://localhost:8501.
+
+
+Requirements
+The requirements.txt file includes all necessary dependencies. Key packages include:
+streamlit
+pandas
+numpy
+statsmodels
+tensorflow
+plotly
+scikit-learn
+arch
+
+To generate the requirements.txt file:
+pip freeze > requirements.txt
+
+
+🚀 Usage
+
+Upload Dataset:
+
+Use the sidebar to upload a CSV file (train.csv) containing sales data.
+Expected columns: date, store, item, sales.
+
+
+Filter Data:
+
+Select a store and item from the dropdown menus in the sidebar.
+
+
+Explore Visualizations:
+
+View sales trends, seasonal decomposition, and rolling statistics.
+Check the Dickey-Fuller test results for stationarity.
+
+
+Run Forecasts:
+
+Click buttons to generate forecasts using ARIMA, SARIMA, Exponential Smoothing, ARCH/GARCH, or LSTM.
+Visualize forecasts against actual test data.
+
+
+Interpret Results:
+
+Analyze forecast accuracy and confidence intervals.
+Use decomposition plots to understand seasonality and trends.
+
+
+
+
+📦 Dataset
+The app expects a CSV file with the following structure:
+
+
+
+date
+store
+item
+sales
+
+
+
+01-01-2013
+1
+1
+13
+
+
+02-01-2013
+1
+1
+11
+
+
+
+date: Date of sales (format: DD-MM-YYYY).
+store: Store identifier (e.g., 1, 2, ...).
+item: Item identifier (e.g., 1, 2, ...).
+sales: Number of units sold.
+
+You can use a sample dataset like the one from the Store Item Demand Forecasting Challenge on Kaggle.
+
+🧠 Methodology
+The app follows a structured approach to time series forecasting:
+
+Data Preprocessing:
+
+Convert dates to datetime format.
+Extract features like day, month, year, and day of week.
+Filter data by store and item.
+
+
+Exploratory Data Analysis:
+
+Visualize sales trends over time.
+Perform seasonal decomposition (additive model, 365-day period).
+Calculate rolling mean and standard deviation.
+Conduct Dickey-Fuller test to check stationarity.
+
+
+Forecasting Models:
+
+ARIMA: Fits a (5,1,0) model to differenced data.
+SARIMA: Uses (1,1,1)(1,1,1,7) for weekly seasonality.
+Exponential Smoothing: Applies additive trend and 365-day seasonality.
+ARCH/GARCH: Models volatility in percentage returns.
+LSTM: Uses a 30-day look-back period with a single-layer LSTM network.
+
+
+Evaluation:
+
+Forecasts are generated for a 90-day test period.
+Visual comparisons between actual and predicted values.
+Confidence intervals for SARIMA forecasts.
+
+
+
+
+🛠 Technologies Used
+
+Python: Core programming language.
+Streamlit: For building the interactive web app.
+Pandas & NumPy: Data manipulation and numerical computations.
+Statsmodels: For ARIMA, SARIMA, and Exponential Smoothing models.
+ARCH: For ARCH/GARCH volatility modeling.
+TensorFlow/Keras: For LSTM neural network implementation.
+Plotly: For interactive visualizations.
+Scikit-learn: For data scaling and preprocessing.
+
+
+📁 Directory Structure
+store-item-demand-forecasting/
+│
+├── app.py                 # Main Streamlit application script
+├── requirements.txt       # Python dependencies
+├── README.md              # Project documentation
+├── data/                  # Directory for datasets (not included in repo)
+│   └── train.csv          # Sample dataset (user-provided)
+├── screenshots/           # Directory for app screenshots
+│   └── dashboard.png
+
+
+🤝 Contributing
+Contributions are welcome! To contribute:
+
+Fork the repository.
+Create a new branch (git checkout -b feature/your-feature).
+Make your changes and commit (git commit -m "Add your feature").
+Push to the branch (git push origin feature/your-feature).
+Open a Pull Request.
+
+Please ensure your code follows PEP 8 guidelines and includes relevant tests.
+
+📜 License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+🙏 Acknowledgements
+
+Streamlit for the amazing web app framework.
+Plotly for interactive visualizations.
+Statsmodels and TensorFlow for robust modeling tools.
+Kaggle for inspiring datasets and challenges.
+
+
+For any issues or suggestions, please open an issue on the GitHub repository. Happy forecasting! 🚀
