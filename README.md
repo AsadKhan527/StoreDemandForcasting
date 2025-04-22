@@ -5,6 +5,7 @@ Live Demo: https://storedemandforcastingts.streamlit.app
 A powerful and interactive web application for forecasting store item demand using advanced time series models like SARIMA, ARIMA, Exponential Smoothing, ARCH/GARCH, and LSTM. Built with Streamlit and Plotly, this app enables you to analyze historical sales data, visualize trends, and generate accurate 90-day forecasts.
 
 **📑 Table of Contents**
+
 Project Overview
 Features
 Usage
@@ -13,12 +14,15 @@ Methodology
 Technologies Used
 
 **📊 Project Overview**
+
 The Store Item Demand Forecasting App is designed to predict future item-level sales across multiple stores, aiding businesses in smarter inventory management and operational efficiency.
 
 **🎯 Problem Statement**
+
 The app forecasts demand for each store-item combination over a 90-day horizon, helping minimize stockouts and overstocking.
 
 ✅ Key Objectives
+
 Preprocess and filter data by store and item
 Perform time series decomposition to reveal trends and seasonality
 Evaluate stationarity using Dickey-Fuller test
@@ -26,14 +30,17 @@ Apply multiple forecasting models and compare their performance
 Visualize forecasts alongside confidence intervals
 
 **✨ Features**
+
 Interactive UI with Streamlit
 Data Filtering by store and item
 
 Time Series Analysis:
+
 Seasonal decomposition
 Rolling statistics and stationarity test (ADF)
 
 Multiple Forecasting Models:
+
 ARIMA
 SARIMA (for seasonal patterns)
 Exponential Smoothing
@@ -46,6 +53,7 @@ Forecasts with confidence intervals
 Scalability: Handles large datasets efficiently
 
 **🚀 Usage**
+
 Upload Dataset
 Upload a .csv file (train.csv) via the sidebar.
 Required columns: date, store, item, sales.
@@ -55,6 +63,7 @@ Choose the desired store and item from dropdown menus.
 Explore Visuals
 
 View:
+
 Sales trends
 Seasonal decomposition
 Rolling statistics
@@ -68,6 +77,7 @@ Use decomposition plots to understand underlying patterns
 Analyze confidence intervals (especially for SARIMA)
 
 **📦 Dataset**
+
 Expected CSV structure:
 
 
@@ -82,12 +92,14 @@ sales: Units sold
 Sample dataset available on Kaggle: Store Item Demand Forecasting Challenge
 
 **🧠 Methodology**
+
 🔧 Data Preprocessing
 Convert date to datetime format
 Extract features: day, month, year, day of week
 Filter data by store and item
 
 📊 Exploratory Data Analysis
+
 Time series plots
 Seasonal decomposition (additive model)
 Rolling mean & std deviation
