@@ -3,8 +3,13 @@ pandas
 numpy
 plotly
 statsmodels
-scipy
+arch
 scikit-learn
+xgboost
 tensorflow
 keras
+scipy
+joblib
 matplotlib
+seaborn
+pmdarima
