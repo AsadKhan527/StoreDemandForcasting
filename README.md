@@ -86,6 +86,7 @@ store-item-demand-forecasting/
 ├── requirements.txt         # Dependencies
 ├── sample_data.csv          # (Optional) Demo CSV
 └── README.md                # Project overview
+
 🖼 Screenshots
 🔍 Forecasting App
 
