@@ -1,4 +1,5 @@
 🛍️ Store Item Demand Forecasting App
+
 Live Demo: https://storedemandforcastingts.streamlit.app
 
 A powerful and interactive web application for forecasting store item demand using advanced time series models like SARIMA, ARIMA, Exponential Smoothing, ARCH/GARCH, and LSTM. Built with Streamlit and Plotly, this app enables you to analyze historical sales data, visualize trends, and generate accurate 90-day forecasts.
