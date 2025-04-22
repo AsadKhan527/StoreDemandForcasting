@@ -1,114 +1,114 @@
 # 🛒 Store Item Demand Forecasting App
 
-📡 **Live Demo**: [Try it on Streamlit! 🚀](https://storedemandforcasting.streamlit.app/)
-
-This project is a **Streamlit web application** built for forecasting item-level daily sales across multiple stores using historical time series data. It uses a SARIMA model for demand prediction and includes tools for visualizing trends, checking stationarity, and evaluating model performance.
+A Streamlit-based interactive dashboard for forecasting daily sales of items across multiple stores using classical time series models (**SARIMA**) and deep learning models (**LSTM**). Designed for analysts, retailers, and supply chain managers.
 
 ---
 
-## 📌 Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [How to Run](#how-to-run)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Screenshots](#screenshots)
-- [License](#license)
 
 ---
 
-## 📖 Overview
+## 📦 Dataset Overview
 
-Retailers face challenges in managing stock and optimizing supply chain operations. This app helps stakeholders forecast future demand for individual store-item pairs using past sales data. It enables smarter inventory decisions and reduces overstocking or stockouts.
+The application expects a dataset with the following structure:
 
----
+| Column   | Description                     |
+|----------|---------------------------------|
+| `date`   | Date of sale (daily granularity)|
+| `store`  | Store ID                        |
+| `item`   | Item ID                         |
+| `sales`  | Number of items sold            |
 
-## ✨ Features
-
-✅ Upload and preprocess your own dataset  
-✅ Filter by **Store** and **Item**  
-✅ Visualize **sales trends** over time  
-✅ Analyze **seasonality and trends** using decomposition  
-✅ Perform **stationarity checks** (ADF Test, Rolling Stats)  
-✅ Apply **SARIMA forecasting**  
-✅ View **90-day forecasts** with confidence intervals  
-✅ Intuitive **Streamlit dashboard interface**
+- **Time Range:** Multiple years
+- **Granularity:** Daily sales per store-item combination
 
 ---
 
-## 🛠 Tech Stack
+## 🔍 Features
 
-| Category        | Libraries/Tools                  |
-|----------------|----------------------------------|
-| Web App        | `Streamlit`                      |
-| Data Handling  | `pandas`, `numpy`                |
-| Visualization  | `matplotlib`, `seaborn`          |
-| Time Series    | `statsmodels`, `SARIMAX`, `ADF`  |
+- 📊 **Interactive Data Exploration**
+  - Filter by Store and Item
+  - View sales trends using Plotly
+- 🧠 **Time Series Analysis**
+  - Seasonal decomposition (trend, seasonality, residual)
+  - Dickey-Fuller test for stationarity
+- 📈 **Forecasting Models**
+  - **SARIMA** with confidence intervals
+  - **LSTM** deep learning model with future predictions
+- 📎 **Visual Output**
+  - Zoomable forecast charts
+  - Historical vs predicted overlays
 
 ---
 
-## 🚀 How to Run
+## 🧪 Methodology
 
-### 🧩 Step 1: Clone the Repo\
-git clone https://github.com/yourusername/store-item-demand-forecasting.git
-cd store-item-demand-forecasting
+1. **Data Preprocessing**  
+   - Date parsing, feature engineering  
+   - Filtering by store/item
 
-📦 Step 2: Create Virtual Environment (optional)
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+2. **Exploratory Analysis**  
+   - Rolling mean & std  
+   - Seasonal decomposition using statsmodels  
 
-📥 Step 3: Install Dependencies
-pip install -r requirements.txt
+3. **Stationarity Check**  
+   - Augmented Dickey-Fuller (ADF) test  
+   - Differencing if needed
 
-▶️ Step 4: Run the App
-streamlit run project.py
+4. **Modeling & Forecasting**  
+   - SARIMA: Statistical forecasting with seasonal cycles  
+   - LSTM: Neural network forecasting with historical sequence learning  
 
-📊 Usage
-Upload your CSV file (same structure as the original dataset: date, store, item, sales)
+5. **Visualization**  
+   - Forecasted vs actual values  
+   - Confidence bands and diagnostics
 
-Select a store and item from the sidebar
+---
 
-View sales trends and seasonal patterns
+## 📂 Project Structure
 
-Check for stationarity and apply differencing if needed
+store-demand-forecasting/
+├── 📄 app.py              # Streamlit application script
+├── 📂 data/
+│   └── 📄 train.csv       # Input dataset (can be uploaded through the app)
+├── 📄 requirements.txt    # Project dependencies
+├── 📄 README.md           # Project overview and instructions
+├── 📄 LICENSE             # License file (e.g., MIT)
+└── 📂 models/             # (Optional) Saved models or future model extensions
 
-Run SARIMA model to generate 90-day forecasts
 
-Analyze results and export plots if needed
+---
 
-🗂 Project Structure
+🛠️ Tech Stack
+Frontend: Streamlit, Plotly
 
-store-item-demand-forecasting/
-│
-├── project.py               # Main Streamlit app
-├── requirements.txt         # Dependencies
-├── sample_data.csv          # (Optional) Demo CSV
-└── README.md                # Project overview
+Backend: Python, Statsmodels, TensorFlow (LSTM)
 
-🖼 Screenshots
-🔍 Forecasting App
+Libraries: Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn
 
-📄 Project Summary :
+---
 
-Project Overview
-This project aims to forecast the future item-level sales for multiple stores using historical data.
+📈 Example Use Cases
+Retail stock replenishment
 
-🔍 Problem Statement:
-Predict future demand for each store-item combination to optimize inventory and supply chain management.
+Demand planning and logistics
 
-📦 Dataset Information:
-Date Range: Daily sales from multiple stores and items
-Columns: date, store, item, sales
-🧠 Methodology:
-Data Filtering by Store & Item
-Time Series Decomposition
-Dickey-Fuller Test for Stationarity
-SARIMA Modeling for Forecasting
-Visual Forecast Evaluation
-📊 Output:
-90-Day Forecast with Confidence Interval
-Visual breakdown of seasonality and trend
+Sales trend analysis
+
+Model comparison and experimentation
+
+---
+
+🙌 Acknowledgements
+This project is inspired by real-world retail forecasting challenges and built with ❤️ using open-source tools.
+
+---
+
+🧑‍💻 Author
+Asad Khan
+GitHub: https://github.com/AsadKhan527
+LinkedIn: linkedin.com/in/asad-khan-0a526225b
+
+---
 
 📄 License
-This project is licensed under the MIT License. Feel free to use and modify it as needed.
+This project is licensed under the MIT License. See LICENSE for details.
