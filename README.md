@@ -1,4 +1,3 @@
-cat << 'EOF' > README.md
 # 🛒 Store Item Demand Forecasting App
 
 📡 **Live Demo**: [Try it on Streamlit! 🚀](https://storedemandforcasting.streamlit.app/)
