@@ -27,25 +27,123 @@ tab1, tab2 = st.tabs(["📄 Project Summary", "📈 Forecasting App"])
 with tab1:
     st.header("Project Overview")
     st.markdown("""
-    This project aims to forecast the future **item-level sales** for multiple stores using historical data.
+The Store Item Demand Forecasting App is designed to predict future sales for individual store-item combinations using advanced time series forecasting techniques. By leveraging historical sales data, the app empowers businesses to optimize inventory management, streamline supply chain operations, and make data-driven decisions.
 
-    ### 🔍 Problem Statement:
-    Predict future demand for each store-item combination to optimize inventory and supply chain management.
+🔍 Problem Statement
+Retail businesses face the challenge of accurately forecasting demand at the store-item level to avoid overstocking or stockouts. The goal is to predict 90-day future sales for each store-item pair, capturing trends, seasonality, and volatility to improve operational efficiency.
 
-    ### 📦 Dataset Information:
-    - **Date Range**: Daily sales from multiple stores and items
-    - **Columns**: `date`, `store`, `item`, `sales`
+📦 Dataset Overview
+The dataset used in this project contains daily sales records for multiple stores and items. Key features include:
 
-    ### 🧠 Methodology:
-    - Data Filtering by Store & Item
-    - Time Series Decomposition
-    - Dickey-Fuller Test for Stationarity
-    - SARIMA, ARIMA, Exponential Smoothing, ARCH, GARCH & LSTM Modeling
-    - Visual Forecast Evaluation
+Columns:
+date: Date of the sales record (format: DD-MM-YYYY)
+store: Store identifier
+item: Item identifier
+sales: Number of units sold
 
-    ### 📊 Output:
-    - 90-Day Forecast with Confidence Interval
-    - Visual breakdown of seasonality and trend
+
+Time Span: Multi-year daily data
+Granularity: Store-item level sales
+
+The dataset is preprocessed to extract additional temporal features such as day, month, year, and dayofweek for enhanced analysis.
+
+🧠 Methodology
+The app employs a robust pipeline to preprocess data, analyze patterns, and generate forecasts. The methodology includes:
+
+Data Preprocessing:
+
+Convert date to datetime format and set as index
+Filter data by user-selected store and item
+Extract temporal features (day, month, year, day of week)
+
+
+Exploratory Data Analysis (EDA):
+
+Visualize sales trends over time using interactive Plotly charts
+Perform seasonal decomposition to identify trend, seasonality, and residual components
+Compute rolling statistics (mean and standard deviation) to assess stationarity
+Conduct Augmented Dickey-Fuller (ADF) test to confirm stationarity of the time series
+
+
+Forecasting Models: A variety of time series models are implemented to capture different aspects of the data:
+
+ARIMA: Captures autoregressive and moving average components
+SARIMA: Extends ARIMA to model seasonality
+Exponential Smoothing: Accounts for trend and seasonality with additive components
+ARCH/GARCH: Models volatility in sales data
+LSTM (Long Short-Term Memory): A deep learning approach to capture complex temporal dependencies
+
+
+Evaluation:
+
+Forecasts are evaluated over a 90-day test period
+Visual comparisons of predicted vs. actual sales
+Confidence intervals provided for SARIMA forecasts
+
+
+
+
+🛠️ Technical Stack
+
+Frontend: Streamlit for an interactive web interface
+Data Processing: Pandas, NumPy
+Visualization: Plotly for dynamic, interactive charts
+Statistical Modeling: Statsmodels (ARIMA, SARIMA, Exponential Smoothing), ARCH
+Deep Learning: TensorFlow/Keras for LSTM
+Stationarity Testing: Statsmodels (ADF test)
+
+
+📊 Key Features
+
+Interactive Filters: Select specific store and item combinations via sidebar
+Data Visualization:
+Line charts for sales trends
+Seasonal decomposition plots (observed, trend, seasonal, residual)
+Rolling mean and standard deviation plots
+
+
+Stationarity Analysis: ADF test results and differenced series visualization
+Multiple Forecasting Models:
+ARIMA, SARIMA, Exponential Smoothing, ARCH/GARCH, and LSTM
+90-day forecasts with confidence intervals (for SARIMA)
+
+
+User-Friendly Interface: Tabbed layout for project summary and forecasting app
+
+
+📈 Outputs
+
+90-Day Sales Forecast: Predicted sales for the selected store-item pair
+Confidence Intervals: Uncertainty bounds for SARIMA forecasts
+Visual Insights:
+Historical sales trends
+Decomposition of time series components
+Forecast vs. actual sales comparisons
+
+
+Volatility Analysis: GARCH-based variance forecasts
+
+
+🚀 Business Impact
+
+Inventory Optimization: Accurate demand forecasts reduce overstocking and stockouts
+Supply Chain Efficiency: Improved planning for procurement and logistics
+Cost Savings: Minimized waste and storage costs
+Scalability: The app can be extended to handle additional stores, items, or forecasting horizons
+
+
+🔮 Future Enhancements
+
+Model Ensemble: Combine predictions from multiple models for improved accuracy
+Hyperparameter Tuning: Automate optimization of model parameters
+External Features: Incorporate exogenous variables (e.g., holidays, promotions)
+Real-Time Updates: Integrate live data feeds for dynamic forecasting
+Cross-Store Analysis: Identify patterns across multiple stores or items
+
+
+📝 Conclusion
+The Store Item Demand Forecasting App provides a powerful, user-friendly solution for predicting retail sales at the store-item level. By combining statistical and deep learning models with interactive visualizations, it equips businesses with the insights needed to make informed decisions and stay ahead in a competitive market.
+
     """)
 
 with tab2:
